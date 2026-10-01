@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste LocalStorage</title>
+    <script>
+    let contadorChave = 0;
+    let professor;
+    let disciplina;
+    let aula;
+    function exibirVariavel() {
+        professor = document.getElementById('professor').value
+        disciplina = document.getElementById('disciplina').value
+        alert(professor + disciplina)
+    }
+
+    function salvarLocal() {
+        professor = document.getElementById('professor').value
+        disciplina = document.getElementById('disciplina').value
+        aula = professor + " - " + disciplina
+        localStorage.setItem(contadorChave, aula)
+        contadorChave = contadorChave + 1
+    }
+
+    function listarLocal() {
+        pesquisaChave = document.getElementById('chave').value
+        alert(localStorage.getItem(pesquisaChave))
+    }
+    </script>
+</head>
+<body>
+    <input type="text" id="professor" placeholder="Insira um professor aqui!">
+    <input type="text" id="disciplina" placeholder="Insira a disciplina">
+    <input type="text" id="chave" placeholder="Insira a chave aqui!">
+    <input type="button" value="CLIQUE AQUI" onclick="exibirVariavel()">
+    <input type="button" value="Salvar no LocalStorage" onclick="salvarLocal()">
+    <input type="button" value="Listar" onclick="listarLocal()">
+</body>
+</html>
